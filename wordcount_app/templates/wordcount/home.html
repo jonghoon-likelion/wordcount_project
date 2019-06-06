@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card text-center">
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Result</a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Word count+</h5>
+        <p class="card-text">Currently, only the following punctuation marks are supported: , . ? !</p>
+        <form action="{% url 'result' %}">
+            {% csrf_token %}
+            <textarea name="fulltext" id="" cols="40" rows="10"></textarea>
+            <br>
+            <input class="btn btn-primary" type="submit" value="Count">
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card text-center">
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#" tabindex="-1" aria-disabled="true">Result</a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">The text you entered consists of {{total}} word(s).</h5>
+        <p class="card-text">Full Text:</p>
+        <div>
+            {{ fulltext }}
+        </div>
+        <p class="card-text">Word Count(Ascending order):</p>
+
+        <div>
+            {% for word, count in dictionary %}
+            {{ word }} : {{ count }}
+            <br>
+            {% endfor %}
+        </div>
+        <a href="{% url 'home' %}" class="btn btn-primary">Home</a>
+    </div>
+</div>
+{% endblock %}

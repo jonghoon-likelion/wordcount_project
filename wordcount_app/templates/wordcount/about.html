@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card text-center">
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="{% url 'about' %}">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Result</a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Word count+</h5>
+        <p class="card-text">Counting the number of total words and each word in a text.</p>
+        <a href="{% url 'home' %}" class="btn btn-primary">Home</a>
+    </div>
+</div>
+{% endblock %}
